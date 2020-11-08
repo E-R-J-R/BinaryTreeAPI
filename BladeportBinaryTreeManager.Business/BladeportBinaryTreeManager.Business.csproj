@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BladeportBinaryTreeManager.Contracts\BladeportBinaryTreeManager.Contracts.csproj" />
+    <ProjectReference Include="..\BladeportBinaryTreeManager.Database\BladeportBinaryTreeManager.Database.csproj" />
+    <ProjectReference Include="..\BladeportBinaryTreeManager.DTO\BladeportBinaryTreeManager.DTO.csproj" />
+  </ItemGroup>
+
+</Project>

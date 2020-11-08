@@ -1,0 +1,205 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Business.Tests\\BladeportBinaryTreeManager.Business.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Business.Tests\\BladeportBinaryTreeManager.Business.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Business.Tests\\BladeportBinaryTreeManager.Business.Tests.csproj",
+        "projectName": "BladeportBinaryTreeManager.Business.Tests",
+        "projectPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Business.Tests\\BladeportBinaryTreeManager.Business.Tests.csproj",
+        "packagesPath": "C:\\Users\\Jr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Business.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Contracts\\BladeportBinaryTreeManager.Contracts.csproj": {
+                "projectPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Contracts\\BladeportBinaryTreeManager.Contracts.csproj"
+              },
+              "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj": {
+                "projectPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.14.7, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.16.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Contracts\\BladeportBinaryTreeManager.Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Contracts\\BladeportBinaryTreeManager.Contracts.csproj",
+        "projectName": "BladeportBinaryTreeManager.Contracts",
+        "projectPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Contracts\\BladeportBinaryTreeManager.Contracts.csproj",
+        "packagesPath": "C:\\Users\\Jr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj": {
+                "projectPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj",
+        "projectName": "BladeportBinaryTreeManager.DTO",
+        "projectPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\BladeportBinaryTreeManager.DTO.csproj",
+        "packagesPath": "C:\\Users\\Jr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jr\\Source\\Repos\\BinaryTreeAPI\\BladeportBinaryTreeManager.DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

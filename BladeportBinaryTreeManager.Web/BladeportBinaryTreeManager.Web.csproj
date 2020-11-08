@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BladeportBinaryTreeManager.Business\BladeportBinaryTreeManager.Business.csproj" />
+    <ProjectReference Include="..\BladeportBinaryTreeManager.Contracts\BladeportBinaryTreeManager.Contracts.csproj" />
+    <ProjectReference Include="..\BladeportBinaryTreeManager.Database\BladeportBinaryTreeManager.Database.csproj" />
+    <ProjectReference Include="..\BladeportBinaryTreeManager.DTO\BladeportBinaryTreeManager.DTO.csproj" />
+  </ItemGroup>
+
+
+</Project>

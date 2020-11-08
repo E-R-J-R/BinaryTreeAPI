@@ -1,0 +1,17 @@
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\bin\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.deps.json
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\bin\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.dll
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\bin\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.pdb
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.csprojAssemblyReference.cache
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.AssemblyInfoInputs.cache
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.AssemblyInfo.cs
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.csproj.CoreCompileInputs.cache
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.dll
+C:\Users\Jr\Source\Repos\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.pdb
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\bin\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.deps.json
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\bin\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.dll
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\bin\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.pdb
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.AssemblyInfoInputs.cache
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.AssemblyInfo.cs
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.csproj.CoreCompileInputs.cache
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.dll
+C:\Users\Jr\Source\Repos\Sagaracorp\BladeportBinaryTreeManager\BladeportBinaryTreeManager.DTO\obj\Debug\netcoreapp3.1\BladeportBinaryTreeManager.DTO.pdb

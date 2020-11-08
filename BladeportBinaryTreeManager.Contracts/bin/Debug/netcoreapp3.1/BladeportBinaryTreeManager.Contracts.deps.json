@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "BladeportBinaryTreeManager.Contracts/1.0.0": {
+        "dependencies": {
+          "BladeportBinaryTreeManager.DTO": "1.0.0"
+        },
+        "runtime": {
+          "BladeportBinaryTreeManager.Contracts.dll": {}
+        }
+      },
+      "BladeportBinaryTreeManager.DTO/1.0.0": {
+        "runtime": {
+          "BladeportBinaryTreeManager.DTO.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BladeportBinaryTreeManager.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BladeportBinaryTreeManager.DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
