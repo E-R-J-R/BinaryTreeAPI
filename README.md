@@ -1,5 +1,5 @@
 # <h1>README</h1>
-<h4>Bladeport Binary Tree Manager Project</h4>
+<h4>Binary Tree Manager Project</h4>
 
 <br>
 
