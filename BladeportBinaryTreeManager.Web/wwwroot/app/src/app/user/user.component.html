@@ -1,24 +1,71 @@
 <br/>
 <div id="userlist-container">
-  <table border="1">  
-      <thead >  
-        <tr>  
-          <th scope="col">User ID</th>  
-          <th scope="col">Username</th>  
-          <th scope="col">First Name</th>  
-          <th scope="col" >Last Name</th>
-          <th scope="col">Join Date</th>
-        </tr>  
-      </thead>  
-      <tbody>  
-        <tr *ngFor="let p of userList">   
-          <td>{{p.userId}}</td>   
-          <td>{{p.userName}}</td>   
-          <td>{{p.firstName}}</td>   
-          <td>{{p.lastName}}</td>
-          <td>{{p.joinDate | date}}</td>
-        </tr> 
-      </tbody>  
-  </table>
+  <span>
+    <table border="1">  
+        <thead >  
+          <tr>  
+            <th scope="col">User ID</th>  
+            <th scope="col">Username</th>  
+            <th scope="col">First Name</th>  
+            <th scope="col" >Last Name</th>            
+            <th scope="col" colspan="2">&nbsp;&nbsp;&nbsp;</th>
+          </tr>  
+        </thead>  
+        <tbody>  
+          <tr>  
+            <td>&nbsp;&nbsp;&nbsp;</td>  
+            <td>              
+              <input type="text" name="userName" [(ngModel)]="input.userName" />
+            </td>  
+            <td>              
+              <input type="text" name="firstName" [(ngModel)]="input.firstName" />
+            </td>  
+            <td>              
+              <input type="text" name="lastName" [(ngModel)]="input.lastName" />
+            </td>
+            <td colspan="2"><button type="button" (click)="adduser()">Add</button></td>
+          </tr>
+
+          <tr>
+            <td colspan="6">&nbsp;&nbsp;&nbsp;</td>
+          </tr>
+          
+          <tr *ngFor="let p of userList; index as i">   
+            <td>{{p.userId}}</td>   
+            
+            <ng-container *ngIf="enableEditIndex != i">
+              <td>{{p.userName}}</td>   
+              <td>{{p.firstName}}</td>   
+              <td>{{p.lastName}}</td>
+              <td *ngIf="enableEditIndex != i">
+                &nbsp;&nbsp;&nbsp;
+                <button type="button" (click)="switchEditMode(i)">Edit</button>
+              </td>              
+            </ng-container>
+
+            <ng-container *ngIf="enableEditIndex == i">
+              <td>              
+                <input type="text" name="userName" [(ngModel)]="p.userName" />
+              </td>  
+              <td>              
+                <input type="text" name="firstName" [(ngModel)]="p.firstName" />
+              </td>  
+              <td>              
+                <input type="text" name="lastName" [(ngModel)]="p.lastName" />
+              </td>
+              <td>
+                <!--
+                  <button (click)="cancel()" ng-click="cancel()">Cancel</button>
+                  &nbsp;
+                -->
+                &nbsp;&nbsp;&nbsp;
+                <button (click)="edituser(p)">Save</button>
+              </td>
+            </ng-container>
+            <td>&nbsp;&nbsp;&nbsp;<button type="button" (click)="deleteuser(p)">Delete</button></td>
+          </tr> 
+        </tbody>  
+    </table>
+  </span>
 </div>
 <br/>

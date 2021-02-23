@@ -20,6 +20,9 @@ namespace BladeportBinaryTreeManager.Database
 
         //Raw SQL
         void InsertMatrixMasterParentNode(ForcedMatrixNodeDTO node);
+        void AddUser(UserDTO user);
+        void DeleteUser(UserDTO user);
+        void EditUser(UserDTO user);
 
         //Stored Procedures
         List<SubTreeDTO> GetSubTreeDepth(int parentId, string tableName);

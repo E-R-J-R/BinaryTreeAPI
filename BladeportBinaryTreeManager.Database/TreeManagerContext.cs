@@ -62,6 +62,42 @@ namespace BladeportBinaryTreeManager.Database
             }
         }
 
+        public void AddUser(UserDTO user)
+        {
+            try
+            {
+                Database.ExecuteSqlRaw($"INSERT INTO [dbo].[Users] (USERNAME, FIRSTNAME, LASTNAME, JOINDATE) VALUES ('{user.UserName}', '{user.FirstName}', '{user.LastName}', CURRENT_TIMESTAMP)");
+            } 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteUser(UserDTO user)
+        {
+            try
+            {                
+                Database.ExecuteSqlRaw($"DELETE FROM [dbo].[Users] WHERE USERID='{user.UserId}'");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditUser(UserDTO user)
+        {            
+            try
+            {
+                Database.ExecuteSqlRaw($"UPDATE [dbo].[Users] SET USERNAME='{user.UserName}', FIRSTNAME='{user.FirstName}', LASTNAME='{user.LastName}' WHERE USERID='{user.UserId}'");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<SubTreeDTO> GetSubTreeDepth(int parentId, string tableName)
         {
             var parentIdParam = new SqlParameter

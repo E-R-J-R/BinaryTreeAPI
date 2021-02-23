@@ -25,5 +25,20 @@ namespace BladeportBinaryTreeManager.Business
                 JoinDate = x.JOINDATE
             }).ToList();
         }
+
+        void IUserBL.AddUser(UserDTO user)
+        {
+            _ctx.AddUser(user);            
+        }
+
+        void IUserBL.DeleteUser(UserDTO user)
+        {
+            _ctx.DeleteUser(user);
+        }
+
+        void IUserBL.EditUser(UserDTO user)
+        {
+            _ctx.EditUser(user);
+        }
     }
 }

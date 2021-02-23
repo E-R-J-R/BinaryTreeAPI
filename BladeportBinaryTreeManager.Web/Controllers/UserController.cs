@@ -25,5 +25,25 @@ namespace BladeportBinaryTreeManager.Web.Controllers
             return _userBl.GetUserList();
         }
 
+        [Route("adduser")]
+        [HttpPost]
+        public void AddUser ([FromBody] UserDTO user)
+        {
+            _userBl.AddUser(user);
+        }
+
+        [Route("edituser")]
+        [HttpPost]
+        public void EditUser([FromBody] UserDTO user)
+        {
+            _userBl.EditUser(user);
+        }
+
+        [Route("deleteuser")]
+        [HttpPost]
+        public void DeleteUser([FromBody] UserDTO user)
+        {
+            _userBl.DeleteUser(user);
+        }
     }
 }
