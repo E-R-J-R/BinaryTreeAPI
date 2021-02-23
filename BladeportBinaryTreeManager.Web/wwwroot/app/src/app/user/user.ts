@@ -3,5 +3,5 @@ export interface IUser {
     UserName: string;
     FirstName: string;
     LastName: string;
-    JoinData: Date;
+    JoinDate: Date;
 }

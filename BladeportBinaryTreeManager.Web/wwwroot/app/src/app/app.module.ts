@@ -9,8 +9,10 @@ import { AppComponent } from './app.component';
 import { OrgchartModule } from '@dabeng/ng-orgchart';
 
 import { BinaryTreeComponent } from './binarytree/binarytree.component';
-import { BinaryTreeService } from './binarytree/binarytree.service'
+import { BinaryTreeService } from './binarytree/binarytree.service';
+import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
+import { UserObjAdapter } from './user/user.model';
 import { ForcedmatrixComponent } from './forcedmatrix/forcedmatrix.component';
 import { ForcedMatrixService } from './forcedmatrix/forcedmatrix.service';
 
@@ -18,7 +20,8 @@ import { ForcedMatrixService } from './forcedmatrix/forcedmatrix.service';
   declarations: [
     AppComponent,
     BinaryTreeComponent,
-    ForcedmatrixComponent
+    ForcedmatrixComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import { ForcedMatrixService } from './forcedmatrix/forcedmatrix.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [BinaryTreeService, UserService, ForcedMatrixService ],
+  providers: [BinaryTreeService, UserService, ForcedMatrixService, UserObjAdapter ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
