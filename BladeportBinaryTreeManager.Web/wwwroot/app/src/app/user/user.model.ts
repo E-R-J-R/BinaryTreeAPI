@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Adapter } from "../shared/adapter";
 
-export class UserObj {
+export class User {
   constructor(
     public userId: number,
     public userName: string,
@@ -12,8 +12,8 @@ export class UserObj {
 }
 
 @Injectable()
-export class UserObjAdapter implements Adapter<UserObj> {
-  adapt(item: any): UserObj {
-    return new UserObj(item.userId, item.userName, item.firstName, item.lastName, new Date(item.joinDate))
+export class UserViewModel implements Adapter<User> {
+  adapt(item: User): User {
+    return new User(item.userId, item.userName, item.firstName, item.lastName, new Date(item.joinDate))
   }
 }

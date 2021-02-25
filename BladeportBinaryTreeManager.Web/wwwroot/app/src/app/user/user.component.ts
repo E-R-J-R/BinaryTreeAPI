@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
-import { UserObj } from '../user/user.model';
+import { User } from '../user/user.model';
 
 @Component({
   selector: 'app-users',
@@ -10,16 +10,11 @@ import { UserObj } from '../user/user.model';
 
 export class UserComponent implements OnInit {
 
-  userList: UserObj[];
-  
-  input: any;
-
+  userList: User[];  
+  input;
   todaysDate: Date;
-
   enableEdit = false;
-
-  isEditing: boolean = false;
-
+  isEditing = false;
   enableEditIndex = null;
 
   constructor(private _userService: UserService) { 
@@ -35,22 +30,22 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._userService.getUsers().subscribe((userList: UserObj[]) => {
+    this._userService.getUsers().subscribe((userList: User[]) => {
       this.userList = userList;
     });    
   }
 
-  adduser() {
+  adduser() {    
     this._userService.addUser(this.input)
       .subscribe(() => {
         this.ngOnInit(); 
       }),
-      (err: any) => { 
-        console.log("Error"); 
+      (err: string) => { 
+        console.log("Error" + err); 
       };
   }
 
-  deleteuser(user:UserObj) {
+  deleteuser(user: User) {
     this._userService.deleteuser(user)
       .subscribe(() => {
         this.ngOnInit();
@@ -60,7 +55,7 @@ export class UserComponent implements OnInit {
       };
   }
 
-  edituser(user:UserObj) {
+  edituser(user: User) {
     this.isEditing = false;
     this.enableEditIndex = null;
 
