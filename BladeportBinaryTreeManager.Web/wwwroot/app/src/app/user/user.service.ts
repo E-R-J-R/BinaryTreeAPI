@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
-import { User, UserViewModel } from './user.model';
+// import { User, UserViewModel } from './user.model';
+import { IUser } from './user';
 import { isNumeric } from 'jquery';
 
 @Injectable()
@@ -15,44 +16,32 @@ export class UserService {
     private _deleteUsersUrl = 'api/user/deleteuser';
     private _editUsersUrl = 'api/user/edituser';
 
-    constructor(private _http: HttpClient, private _adapter: UserViewModel) {}
+    constructor(private _http: HttpClient ) {}
 
-    getUserList(): Observable<any> {
+    getUserList(): Observable<Object> {
         return this._http.get(this._server + this._getUsersUrl);
     }
     
-    getUsers(): Observable<User[]> {
+    getUsers(): Observable<Object> {
         const url = this._server + this._getUsersUrl;
-
-        // Adapt each item in the raw data array
-        return this._http.get(url).pipe(
-            map((data: User[]) => data.map((item: User) => this._adapter.adapt(item)))
-        );        
+        return this._http.get(url);
     }
 
-    deleteuser(userInput: User): Observable<Object> {
-        const url = this._server + this._deleteUsersUrl;
-
-        let headers = new HttpHeaders({ 'content-type': 'application/json' });
-        return this._http.post(url, JSON.stringify(userInput), { headers: headers });
-    }
- 
-    addUser(userInput: User): Observable<Object> {
-        const url = this._server + this._addUsersUrl;
-        console.log ({ userInput });
-        
-        if (userInput.userName && userInput.firstName && userInput.lastName) {
-            let headers = new HttpHeaders ({ 'content-type': 'application/json' });
-            return this._http.post(url, JSON.stringify(userInput), {headers: headers});
-        }
+    addUser(userInput: IUser): Observable<Object> {
+        const url = this._server + this._addUsersUrl;        
+        let headers = new HttpHeaders ({ 'content-type': 'application/json' });
+        return this._http.post(url, JSON.stringify(userInput), { headers: headers });        
     }
 
-    editUser(userInput: User): Observable<Object> {
+    editUser(userInput: IUser): Observable<Object> {
         const url = this._server + this._editUsersUrl;
-
         let headers = new HttpHeaders({ 'content-type': 'application/json' });
         return this._http.post(url, JSON.stringify(userInput), { headers: headers });
-
     }
 
+    deleteuser(userInput: IUser): Observable<Object> {
+        const url = this._server + this._deleteUsersUrl;
+        let headers = new HttpHeaders({ 'content-type': 'application/json' });
+        return this._http.post(url, JSON.stringify(userInput), { headers: headers });
+    }
 }

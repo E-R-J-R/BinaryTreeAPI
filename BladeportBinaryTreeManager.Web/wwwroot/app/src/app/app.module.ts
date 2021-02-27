@@ -12,7 +12,6 @@ import { BinaryTreeComponent } from './binarytree/binarytree.component';
 import { BinaryTreeService } from './binarytree/binarytree.service';
 import { UserComponent } from './user/user.component';
 import { UserService } from './user/user.service';
-import { UserObjAdapter } from './user/user.model';
 import { ForcedmatrixComponent } from './forcedmatrix/forcedmatrix.component';
 import { ForcedMatrixService } from './forcedmatrix/forcedmatrix.service';
 
@@ -30,7 +29,7 @@ import { ForcedMatrixService } from './forcedmatrix/forcedmatrix.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [BinaryTreeService, UserService, ForcedMatrixService, UserObjAdapter ],
+  providers: [BinaryTreeService, UserService, ForcedMatrixService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

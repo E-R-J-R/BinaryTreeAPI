@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BladeportBinaryTreeManager.Database
 {
     public class TreeManagerContext : DbContext, ITreeManagerContext
     {
-        public TreeManagerContext(DbContextOptions options) : base(options)
+        public TreeManagerContext(DbContextOptions<TreeManagerContext> options) : base(options)
         {
            
         }
@@ -54,7 +55,7 @@ namespace BladeportBinaryTreeManager.Database
         {
             try
             {
-                Database.ExecuteSqlRaw($"INSERT INTO [dbo].[ForcedMatrix{node.ChildLimit}x{node.LevelLimit}] (USERID, LFT, RGT, PARENTID, SPONSORID, ISMASTERPARENT) VALUES ({node.NodeId}, 1, 2, 0, {node.SponsorId}, 'TRUE')");
+                Database.ExecuteSqlRaw($"INSERT INTO [dbo].[ForcedMatrix{node.ChildLimit}x{node.LevelLimit}] (USERID, LFT, RGT, PARENTID, SPONSORID, ISMASTERPARENT) VALUES ({node.NodeId}, 1, 2, 0, {node.SponsorId}, 'TRUE')");                
             }
             catch (Exception ex)
             {
@@ -66,8 +67,20 @@ namespace BladeportBinaryTreeManager.Database
         {
             try
             {
-                Database.ExecuteSqlRaw($"INSERT INTO [dbo].[Users] (USERNAME, FIRSTNAME, LASTNAME, JOINDATE) VALUES ('{user.UserName}', '{user.FirstName}', '{user.LastName}', CURRENT_TIMESTAMP)");
+                Database.ExecuteSqlRaw($"INSERT INTO [dbo].[Users] (USERNAME, FIRSTNAME, LASTNAME, JOINDATE) VALUES ('{user.UserName}', '{user.FirstName}', '{user.LastName}', CURRENT_TIMESTAMP)");                
             } 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void EditUser(UserDTO user)
+        {
+            try
+            {
+                Database.ExecuteSqlRaw($"UPDATE [dbo].[Users] SET USERNAME='{user.UserName}', FIRSTNAME='{user.FirstName}', LASTNAME='{user.LastName}' WHERE USERID='{user.UserId}'");
+            }
             catch (Exception ex)
             {
                 throw ex;
@@ -86,11 +99,36 @@ namespace BladeportBinaryTreeManager.Database
             }
         }
 
-        public void EditUser(UserDTO user)
-        {            
+        public async Task<bool> AddUserAsync(UserDTO user)
+        {
             try
             {
-                Database.ExecuteSqlRaw($"UPDATE [dbo].[Users] SET USERNAME='{user.UserName}', FIRSTNAME='{user.FirstName}', LASTNAME='{user.LastName}' WHERE USERID='{user.UserId}'");
+                int rows = await Database.ExecuteSqlRawAsync($"INSERT INTO [dbo].[Users] (USERNAME, FIRSTNAME, LASTNAME, JOINDATE) VALUES ('{user.UserName}', '{user.FirstName}', '{user.LastName}', CURRENT_TIMESTAMP)");
+                return (rows > 0);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<bool> EditUserAsync(UserDTO user)
+        {
+            try
+            {
+                int rows = await Database.ExecuteSqlRawAsync($"UPDATE [dbo].[Users] SET USERNAME='{user.UserName}', FIRSTNAME='{user.FirstName}', LASTNAME='{user.LastName}' WHERE USERID='{user.UserId}'");
+                return (rows > 0);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<bool> DeleteUserAsync(UserDTO user)
+        {
+            try
+            {
+                int rows = await Database.ExecuteSqlRawAsync($"DELETE FROM [dbo].[Users] WHERE USERID='{user.UserId}'");
+                return (rows > 0);
             }
             catch (Exception ex)
             {

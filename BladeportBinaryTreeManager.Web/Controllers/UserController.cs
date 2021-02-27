@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BladeportBinaryTreeManager.Contracts;
 using BladeportBinaryTreeManager.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -20,30 +21,30 @@ namespace BladeportBinaryTreeManager.Web.Controllers
 
         [Route("users")]
         [HttpGet]
-        public List<UserDTO> GetUserList()
+        public async Task<ActionResult<List<UserDTO>>> GetUserListAsync()
         {
-            return _userBl.GetUserList();
+            return await _userBl.GetUserListAsync();            
         }
 
         [Route("adduser")]
         [HttpPost]
-        public void AddUser ([FromBody] UserDTO user)
+        public async Task<bool> AddUserAsync([FromBody] UserDTO user)
         {
-            _userBl.AddUser(user);
+            return await _userBl.AddUserAsync(user);
         }
 
         [Route("edituser")]
         [HttpPost]
-        public void EditUser([FromBody] UserDTO user)
+        public async Task<bool> EditUserAsync([FromBody] UserDTO user)
         {
-            _userBl.EditUser(user);
+            return await _userBl.EditUserAsync(user);
         }
 
         [Route("deleteuser")]
         [HttpPost]
-        public void DeleteUser([FromBody] UserDTO user)
+        public async Task<bool> DeleteUserAsync([FromBody] UserDTO user)
         {
-            _userBl.DeleteUser(user);
+            return await _userBl.DeleteUserAsync(user);
         }
     }
 }

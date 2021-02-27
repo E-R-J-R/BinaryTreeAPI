@@ -15,13 +15,13 @@
           <tr>  
             <td>&nbsp;&nbsp;&nbsp;</td>  
             <td>              
-              <input type="text" name="userName" [(ngModel)]="input.userName" />
+              <input type="text" name="userName" [(ngModel)]="user.userName" />
             </td>  
             <td>              
-              <input type="text" name="firstName" [(ngModel)]="input.firstName" />
+              <input type="text" name="firstName" [(ngModel)]="user.firstName" />
             </td>  
             <td>              
-              <input type="text" name="lastName" [(ngModel)]="input.lastName" />
+              <input type="text" name="lastName" [(ngModel)]="user.lastName" />
             </td>
             <td colspan="2"><button type="button" (click)="adduser()">Add</button></td>
           </tr>
@@ -30,7 +30,7 @@
             <td colspan="6">&nbsp;&nbsp;&nbsp;</td>
           </tr>
           
-          <tr *ngFor="let p of userList; index as i">   
+          <tr *ngFor="let p of users; index as i">   
             <td>{{p.userId}}</td>   
             
             <ng-container *ngIf="enableEditIndex != i">

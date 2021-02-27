@@ -3,6 +3,9 @@ using BladeportBinaryTreeManager.DTO;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using FluentAssertions;
+using FluentAssertions.Common;
+using FluentAssertions.Execution;
 
 namespace BladeportBinaryTreeManager.Business.Tests
 {
@@ -39,8 +42,8 @@ namespace BladeportBinaryTreeManager.Business.Tests
 			var result = _userBl.Object.GetUserList();
 
 			// Assert
-			Assert.IsTrue(result.Count > 0);
-        }
+			result.Count.Should().BeGreaterThan(0);
+		}
 
 		[Test]
 		public void GetUserList_Empty_Test()
@@ -53,7 +56,7 @@ namespace BladeportBinaryTreeManager.Business.Tests
 			var result = _userBl.Object.GetUserList();
 
 			// Assert
-			Assert.IsTrue(result.Count == 0);
+			result.Count.Should().Be(0);
 		}
 	}
 }

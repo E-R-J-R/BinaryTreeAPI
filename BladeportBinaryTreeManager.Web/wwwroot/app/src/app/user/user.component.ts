@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
-import { User } from '../user/user.model';
+import { IUser } from '../user/user';
 
 @Component({
   selector: 'app-users',
@@ -10,69 +10,70 @@ import { User } from '../user/user.model';
 
 export class UserComponent implements OnInit {
 
-  userList: User[];  
-  input;
-  todaysDate: Date;
-  enableEdit = false;
+  users: IUser[];
+  errorMessage: string;
+  user: IUser = {} as IUser;
   isEditing = false;
   enableEditIndex = null;
 
-  constructor(private _userService: UserService) { 
-    this.userList = [];
-
-    this.input = {
-      'userName':'',
-      'firstName': '',
-      'lastName': ''
-    };
-
-    this.todaysDate = new Date();
-  }
+  constructor(private _userService: UserService) { }
 
   ngOnInit() {
-    this._userService.getUsers().subscribe((userList: User[]) => {
-      this.userList = userList;
-    });    
+    this.listUsers();
+  }
+
+  listUsers() {
+    this._userService.getUsers().subscribe((users: IUser[]) => {
+      this.users = users;
+    });
+  }
+
+  getUser() {
+    // console.log('getUser By Search');
   }
 
   adduser() {    
-    this._userService.addUser(this.input)
-      .subscribe(() => {
-        this.ngOnInit(); 
-      }),
-      (err: string) => { 
-        console.log("Error" + err); 
-      };
+    if (Object.keys(this.user).length > 0) {
+      this._userService.addUser(this.user)
+      .subscribe( 
+        (data: boolean) => { // expected response is true or false
+          /* TODO : need to have code here to handle and display a message if User was added or not */
+          data ? console.log('Added User - ' + this.user.userName) : console.log('Not Added - User - ' + this.user.userName);
+          this.listUsers();          
+        }
+      );
+    } else {
+
+      console.log('Empty Add User Form');
+      /* TODO: need to have code here to handle empty form */
+      
+    }
   }
 
-  deleteuser(user: User) {
-    this._userService.deleteuser(user)
-      .subscribe(() => {
-        this.ngOnInit();
-      }),
-      (err: any) => {
-        console.log("Error");
-      };
-  }
-
-  edituser(user: User) {
+  edituser(user: IUser) {
     this.isEditing = false;
     this.enableEditIndex = null;
 
     this._userService.editUser(user)
-      .subscribe(() => {
-        this.ngOnInit();
-      }),
-      (err: any) => {
-        console.log("Error");
-      };
+      .subscribe(
+        (data: boolean) => { // expected response is true or false
+          /* TODO : need to have code here to handle and display a message if User was updated or not */
+          data ? console.log('Updated User - ' + user.userName) : console.log('Not Updated - User - ' + user.userName);
+          this.listUsers();
+        }
+      );
   }
 
-  enableEditMode(e, i) {
-    this.enableEdit = true;
-    this.enableEditIndex = i;
-    console.log(i);
-    console.log(e);
+  deleteuser(user: IUser) {
+    this.user = user;
+    this._userService.deleteuser(user)
+      .subscribe(
+        (data: boolean) => { // expected response is true or false
+          /* TODO : need to have code here to handle and display a message if User was removed or not */
+          data ? console.log('Removed User - ' + user.userName) : console.log('Not Removed - User - ' + user.userName);
+          this.listUsers();
+        }
+      );
   }
 
   switchEditMode(i) {
