@@ -3,6 +3,7 @@ using BladeportBinaryTreeManager.DTO;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BladeportBinaryTreeManager.Database
 {
@@ -19,7 +20,10 @@ namespace BladeportBinaryTreeManager.Database
         int SaveChanges();
 
         //Raw SQL
-        void InsertMatrixMasterParentNode(ForcedMatrixNodeDTO node);
+        void InsertMatrixMasterParentNode(ForcedMatrixNodeDTO node);       
+        Task<bool> AddUserAsync(UserDTO user);
+        Task<bool> EditUserAsync(UserDTO user);
+        Task<bool> DeleteUserAsync(UserDTO user);
 
         //Stored Procedures
         List<SubTreeDTO> GetSubTreeDepth(int parentId, string tableName);
@@ -28,7 +32,5 @@ namespace BladeportBinaryTreeManager.Database
         List<TreeDTO> GetFullTreeSchema(string tableName);
         List<TreeStructureDTO> GetLeafNodes(string tableName);
         List<ParentNodeDTO> GetMasterParentPath(int userId, string tableName);
-
-
     }
 }

@@ -1,0 +1,65 @@
+<br/>
+<div class="row">
+    <div class="col-md-6">
+        <form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+            <input name="userId" [value]="_userService.formData.userId" style='display:none' />
+            <div class="form-group">
+                <label>User Name</label>
+                <input class="form-control form-control-lg" placeholder="User Name" name="userName"
+                    #userName="ngModel" [(ngModel)]="_userService.formData.userName"
+                    required maxlength="8" minlength="4" [class.invalid]="userName.invalid && userName.touched">
+            </div>
+            <div class="form-group">
+                <label>First Name</label>
+                <input class="form-control form-control-lg" placeholder="First Name" name="firstName"
+                    #firstName="ngModel" [(ngModel)]="_userService.formData.firstName"
+                    required maxlength="10" minlength="4" [class.invalid]="firstName.invalid && firstName.touched">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                    <input class="form-control form-control-lg" placeholder="Last Name" name="lastName"
+                        #lastName="ngModel" [(ngModel)]="_userService.formData.lastName"
+                        required maxlength="10" minlength="4" [class.invalid]="lastName.invalid && lastName.touched">
+            </div>
+            <!--
+                <div class="form-group">
+                    <label>Last Name</label>
+                        <label>Join Date</label>
+                            <input class="form-control form-control-lg" placeholder="MM/YY/DD" name="joinDate"
+                                #joinDate="ngModel" [(ngModel)]="_userService.formData.joinDate"
+                                required maxlength="7" minlength="7" [class.invalid]="joinDate.invalid && joinDate.touched">
+                </div>
+            -->
+            <div class="form-group">
+                <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>User ID</th>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <!--<th>Join Date</th>-->
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of _userService.users">
+                    <td (click)="populateForm(pd)">{{pd.userId}}</td>
+                    <td (click)="populateForm(pd)">{{pd.userName}}</td>
+                    <td (click)="populateForm(pd)">{{pd.firstName}}</td>
+                    <td (click)="populateForm(pd)">{{pd.lastName}}</td>
+                    <!--<td (click)="populateForm(pd)">{{pd.ljoinDate}}</td>-->
+                    <td>
+                        <!--<i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.userId)"></i>-->
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDeleteUser(pd)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
