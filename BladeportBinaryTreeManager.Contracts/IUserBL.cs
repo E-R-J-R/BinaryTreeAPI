@@ -8,9 +8,9 @@ namespace BladeportBinaryTreeManager.Contracts
     public interface IUserBL
     {
         List<UserDTO> GetUserList();
-        void AddUser(UserDTO user);
-        void DeleteUser(UserDTO user);
-        void EditUser(UserDTO user);
+        
+        Task<ActionResult<UserDTO>> GetUserAsync(int id);
+        Task<ActionResult<UserDTO>> GetUserAsync(string username);
         Task<ActionResult<List<UserDTO>>> GetUserListAsync();
         Task<bool> AddUserAsync(UserDTO user);
         Task<bool> DeleteUserAsync(UserDTO user);

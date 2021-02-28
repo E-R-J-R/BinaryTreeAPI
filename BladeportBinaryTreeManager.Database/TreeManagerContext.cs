@@ -14,7 +14,7 @@ namespace BladeportBinaryTreeManager.Database
     {
         public TreeManagerContext(DbContextOptions<TreeManagerContext> options) : base(options)
         {
-           
+
         }
         public virtual DbSet<USERS> USERS { get; set; }
         public virtual DbSet<BINARYTREE> BINARYTREE { get; set; }
@@ -56,42 +56,6 @@ namespace BladeportBinaryTreeManager.Database
             try
             {
                 Database.ExecuteSqlRaw($"INSERT INTO [dbo].[ForcedMatrix{node.ChildLimit}x{node.LevelLimit}] (USERID, LFT, RGT, PARENTID, SPONSORID, ISMASTERPARENT) VALUES ({node.NodeId}, 1, 2, 0, {node.SponsorId}, 'TRUE')");                
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void AddUser(UserDTO user)
-        {
-            try
-            {
-                Database.ExecuteSqlRaw($"INSERT INTO [dbo].[Users] (USERNAME, FIRSTNAME, LASTNAME, JOINDATE) VALUES ('{user.UserName}', '{user.FirstName}', '{user.LastName}', CURRENT_TIMESTAMP)");                
-            } 
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void EditUser(UserDTO user)
-        {
-            try
-            {
-                Database.ExecuteSqlRaw($"UPDATE [dbo].[Users] SET USERNAME='{user.UserName}', FIRSTNAME='{user.FirstName}', LASTNAME='{user.LastName}' WHERE USERID='{user.UserId}'");
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void DeleteUser(UserDTO user)
-        {
-            try
-            {                
-                Database.ExecuteSqlRaw($"DELETE FROM [dbo].[Users] WHERE USERID='{user.UserId}'");
             }
             catch (Exception ex)
             {

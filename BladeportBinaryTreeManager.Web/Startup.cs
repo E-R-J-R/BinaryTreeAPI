@@ -31,6 +31,7 @@ namespace BladeportBinaryTreeManager.Web
             services.Add(new ServiceDescriptor(typeof(IHierarchyBL), typeof(HierarchyBL), ServiceLifetime.Scoped));
             services.Add(new ServiceDescriptor(typeof(IUserBL), typeof(UserBL), ServiceLifetime.Scoped));
             services.AddControllers();
+            //services.AddAutoMapper(typeof(Startup));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title ="BinaryTreeAPI", Version = "v1" });
@@ -42,6 +43,7 @@ namespace BladeportBinaryTreeManager.Web
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

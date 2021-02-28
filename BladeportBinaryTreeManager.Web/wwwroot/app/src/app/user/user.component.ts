@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user/user.service';
-import { IUser } from '../user/user';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserService } from './user.service';
+import { IUser } from './user';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
@@ -10,79 +12,102 @@ import { IUser } from '../user/user';
 
 export class UserComponent implements OnInit {
 
-  users: IUser[];
-  errorMessage: string;
-  user: IUser = {} as IUser;
-  isEditing = false;
-  enableEditIndex = null;
+  @ViewChild('form') form: NgForm;
+  stringTitle = 'User List';
 
-  constructor(private _userService: UserService) { }
-
+  constructor(public _userService: UserService, private toastr: ToastrService) { }
+    
   ngOnInit() {
     this.listUsers();
   }
 
   listUsers() {
-    this._userService.getUsers().subscribe((users: IUser[]) => {
-      this.users = users;
-    });
+    this._userService.getUsers();
   }
 
-  getUser() {
-    // console.log('getUser By Search');
+  populateForm(selectedRecord: IUser) {
+    this._userService.formData = Object.assign({}, selectedRecord);
   }
 
-  adduser() {    
-    if (Object.keys(this.user).length > 0) {
-      this._userService.addUser(this.user)
-      .subscribe( 
-        (data: boolean) => { // expected response is true or false
-          /* TODO : need to have code here to handle and display a message if User was added or not */
-          data ? console.log('Added User - ' + this.user.userName) : console.log('Not Added - User - ' + this.user.userName);
-          this.listUsers();          
-        }
-      );
+  onSubmit(form: NgForm) {    
+    if (this._userService.formData.userId == 0) {
+      this.addUser(form);
     } else {
-
-      console.log('Empty Add User Form');
-      /* TODO: need to have code here to handle empty form */
-      
+      this.editUser(form);
     }
   }
 
-  edituser(user: IUser) {
-    this.isEditing = false;
-    this.enableEditIndex = null;
-
-    this._userService.editUser(user)
+  addUser(form: NgForm) {
+    this._userService.addUser()
       .subscribe(
-        (data: boolean) => { // expected response is true or false
-          /* TODO : need to have code here to handle and display a message if User was updated or not */
-          data ? console.log('Updated User - ' + user.userName) : console.log('Not Updated - User - ' + user.userName);
+        res => {
+          this.resetForm(form);
           this.listUsers();
-        }
-      );
+          this.toastr.success('User added successfully', this.stringTitle);
+        },
+        err => { 
+          this.toastr.error(err.error, this.stringTitle);
+        } 
+    )
   }
 
-  deleteuser(user: IUser) {
-    this.user = user;
-    this._userService.deleteuser(user)
+  editUser(form: NgForm) {
+    const id = this._userService.formData.userId;
+    this._userService.editUser(id)
       .subscribe(
-        (data: boolean) => { // expected response is true or false
-          /* TODO : need to have code here to handle and display a message if User was removed or not */
-          data ? console.log('Removed User - ' + user.userName) : console.log('Not Removed - User - ' + user.userName);
+        res => {
+          this.resetForm(form);
           this.listUsers();
+          this.toastr.success('User ID '+id+' updated successfully', this.stringTitle);
+        },
+        err => { 
+          this.toastr.error(err.error, this.stringTitle);
         }
-      );
+      )
   }
 
-  switchEditMode(i) {
-    this.isEditing = true;
-    this.enableEditIndex = i;
+  resetForm(form: NgForm) {
+    form.form.reset();
+    this._userService.formData = {
+      userId: 0,
+      userName: '',
+      firstName: '',
+      lastName: '',
+      joinDate: new Date()
+    } as IUser;
   }
 
-  cancel() {
-    this.isEditing = false;
-    this.enableEditIndex = null;
+  onDelete(id: number) {
+    if (confirm('Are you sure to delete this record for User ID '+id+' ?')) {
+      this._userService.deleteuser(id)
+        .subscribe(
+          res => {
+            this.listUsers();
+            this.toastr.error('User ID ' + id + ' deleted successfully', this.stringTitle);            
+          },
+          err => { 
+            this.toastr.error(err.error, this.stringTitle);
+          }
+        )
+
+    }
+  } 
+
+  onDeleteUser(selectedRecord: IUser) {
+    this.populateForm(selectedRecord);
+    const id = selectedRecord.userId;    
+    if (confirm('Are you sure to delete this record for User ID ' + id + ' ?')) {
+      this._userService.deleteuser(id)
+        .subscribe(
+          res => {
+            this.resetForm(this.form);
+            this.listUsers();
+            this.toastr.info('User ID ' + id + ' deleted successfully', this.stringTitle);
+          },
+          err => { 
+            this.toastr.error(err.error, this.stringTitle);
+          }
+        )
+    }
   }
 }

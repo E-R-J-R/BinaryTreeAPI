@@ -20,10 +20,7 @@ namespace BladeportBinaryTreeManager.Database
         int SaveChanges();
 
         //Raw SQL
-        void InsertMatrixMasterParentNode(ForcedMatrixNodeDTO node);
-        void AddUser(UserDTO user);
-        void DeleteUser(UserDTO user);
-        void EditUser(UserDTO user);
+        void InsertMatrixMasterParentNode(ForcedMatrixNodeDTO node);       
         Task<bool> AddUserAsync(UserDTO user);
         Task<bool> EditUserAsync(UserDTO user);
         Task<bool> DeleteUserAsync(UserDTO user);
@@ -35,7 +32,5 @@ namespace BladeportBinaryTreeManager.Database
         List<TreeDTO> GetFullTreeSchema(string tableName);
         List<TreeStructureDTO> GetLeafNodes(string tableName);
         List<ParentNodeDTO> GetMasterParentPath(int userId, string tableName);
-
-
     }
 }
